@@ -20,6 +20,33 @@ void runTests(){
   deleteAfter(l);
   traverse(l);
   printf("\n");
+  
+  int len = length(l);
+  printf("Number of elements in l: %d\n", len);
+  
+  
+  printf("Pushing el to head of l:\n\n");
+  push(&l,"new head(4)", 30);
+  
+  traverse(l);
+  printf("\n");
+  
+  printf("popping element from head:\n");
+  listElement* poppedL = pop(&l);
+  
+  traverse(l);
+    printf("\n");
+	
+    printf("enqueing element to head:\n");
+  enqueue(&l,"new enqueued head(5)", 30);
+  
+  traverse(l);
+    printf("\n");
+	
+     printf("dequeing element to head:\n");
+  listElement* dequeuedEl = dequeue(l);
+  
+  traverse(l);
 
   printf("\nTests complete.\n");
 }

@@ -30,6 +30,47 @@ listElement* createEl(char* data, size_t size){
   return e;
 }
 
+int length(listElement* list){
+	listElement* current = list;
+	int counter = 1;
+	
+	while (current->next != NULL) {
+		counter++;
+		current = current->next;
+	}
+	return counter;
+}
+
+void push(listElement** list, char* data, size_t size){
+	listElement* new = createEl(data,size);
+	new->next = *list;
+	*list = new;
+}
+
+listElement* pop(listElement** list){
+	listElement* l = *list;
+	*list = l->next;
+	return l;
+}
+
+void enqueue(listElement** list, char* data, size_t size){
+	listElement* new = createEl(data,size);
+	new->next = *list;
+	*list = new;
+}
+
+listElement* dequeue(listElement* list){
+	listElement* current = list;
+	while (current->next->next != NULL){
+		current = current->next;
+	}
+	listElement* dequeued = current-> next;
+	deleteAfter(current);
+	return dequeued;
+	
+	
+}
+
 //Prints out each element in the list
 void traverse(listElement* start){
   listElement* current = start;
